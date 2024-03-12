@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <title>Job Scrapper</title>
+  </head>
+  <body>
+    <main class="container">
+      <h1>Search Results for "{{keyword}}":</h1>
+      <a target="_blank" href="/export?keyword={{keyword}}">Export to file</a>
+      <figure>
+        <table role="grid">
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Company</th>
+              <th scope="col">Location</th>
+              <th scope="col">Reward</th>
+              <th scope="col">Access</th>
+            </tr>
+          </thead>
+        {% for item in jobs %}
+          <tbody>
+          <tr>
+            <th>{{item.Title}}</th>
+            <th>{{item.Company}}</th>
+            <th>{{item.Location}}</th>
+            <th>{{item.Reward}}</th>
+            <th><a href="{{item.URL}}">Apply &rarr;</a></th>
+          </tr>
+          </tbody>
+        {% endfor %}
+        </table>
+      </figure>
+    </main>
+    </form>
+  </body>
+</html>
